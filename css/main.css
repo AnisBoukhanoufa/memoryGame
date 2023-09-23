@@ -1,0 +1,166 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(89, 89, 225);
+  opacity: 0.5;
+  z-index: 99;
+}
+
+.button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: rgb(210, 54, 54);
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.game {
+  width: 70%;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.game .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 20px;
+  border-color: #007fff;
+  border-width: 3px;
+  border-style: solid;
+}
+.game .text p {
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  position: relative;
+}
+.game .text p::after {
+  font-size: 20px;
+  font-weight: 800;
+  color: #007fff;
+  margin-left: 5px;
+}
+.game .text p:nth-of-type(1)::after {
+  content: attr(data-name);
+}
+.game .text p:nth-of-type(2)::after {
+  content: attr(data-try);
+}
+
+.cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+.cards-container .card {
+  position: relative;
+  width: calc((100% - 80px) / 5);
+  height: calc((70vh - 60px) / 4);
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  cursor: pointer;
+}
+.cards-container .card.is-flipped {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  cursor: default;
+}
+.cards-container .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border: 2px solid gold;
+}
+.cards-container .card .front {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-color: #003153;
+}
+.cards-container .card .front::after {
+  content: "?";
+  color: white;
+  font-size: 100px;
+  font-weight: 800;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+}
+.cards-container .card .back {
+  z-index: 0;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #007fff;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.cards-container .card .back img {
+  width: 90%;
+  height: 90%;
+}
+
+.winner {
+  font-size: 70px;
+  color: green;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.no-click {
+  pointer-events: none;
+}
+/*# sourceMappingURL=main.css.map */
